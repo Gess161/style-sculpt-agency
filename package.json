@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://gess161.github.io/style-sculpt-agency",
+  "homepage": "afconceptaudit.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
