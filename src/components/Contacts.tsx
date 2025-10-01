@@ -1,24 +1,18 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Send 
-} from 'lucide-react';
-import { useState } from 'react';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { useState } from "react";
 
 const Contacts = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,7 +21,7 @@ const Contacts = () => {
       title: "Повідомлення надіслано",
       description: "Ми зв'яжемося з вами найближчим часом",
     });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   const contactInfo = [
@@ -35,26 +29,29 @@ const Contacts = () => {
       icon: Phone,
       title: "Телефони",
       details: ["+38(067)610-40-47", "+38(067)263-05-64"],
-      action: "tel:+380676104047"
+      action: "tel:+380676104047",
     },
     {
       icon: Mail,
       title: "Email",
       details: ["af.concept.audit@gmail.com"],
-      action: "mailto:af.concept.audit@gmail.com"
+      action: "mailto:af.concept.audit@gmail.com",
     },
     {
       icon: MapPin,
       title: "Адреса",
-      details: ["79054, Україна, Львівська обл.,", "м. Львів, вул. Яворницького Д., 8, кв. 72"],
-      action: null
+      details: [
+        "79054, Україна, Львівська обл.,",
+        "м. Львів, вул. Яворницького Д., 8, кв. 72",
+      ],
+      action: null,
     },
     {
       icon: Clock,
       title: "Графік роботи",
       details: ["Пн-Пт: 9:00 - 18:00", "Сб-Нд: за домовленістю"],
-      action: null
-    }
+      action: null,
+    },
   ];
 
   return (
@@ -77,7 +74,7 @@ const Contacts = () => {
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
-                  <Card 
+                  <Card
                     key={index}
                     className="p-6 bg-card shadow-soft hover:shadow-medium transition-all duration-300 hover-lift"
                   >
@@ -92,9 +89,12 @@ const Contacts = () => {
                           {info.title}
                         </h3>
                         {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-text-secondary text-sm">
+                          <p
+                            key={detailIndex}
+                            className="text-text-secondary text-sm"
+                          >
                             {info.action && detailIndex === 0 ? (
-                              <a 
+                              <a
                                 href={info.action}
                                 className="hover:text-accent transition-colors"
                               >
@@ -117,7 +117,8 @@ const Contacts = () => {
                 Безкоштовна консультація
               </h3>
               <p className="text-white/90 mb-4">
-                Отримайте професійну консультацію з будь-яких питань аудиту та оподаткування
+                Отримайте професійну консультацію з будь-яких питань аудиту та
+                оподаткування
               </p>
               <ul className="space-y-2 text-sm text-white/80">
                 <li>• Оцінка поточного стану фінансової звітності</li>
@@ -128,12 +129,12 @@ const Contacts = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          {/* <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <Card className="p-8 bg-card shadow-medium">
               <h3 className="font-playfair font-semibold text-2xl text-primary mb-6">
                 Надішліть повідомлення
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
@@ -143,7 +144,9 @@ const Contacts = () => {
                     <Input
                       required
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       placeholder="Ваше ім'я"
                       className="border-border focus:border-accent"
                     />
@@ -154,7 +157,9 @@ const Contacts = () => {
                     </label>
                     <Input
                       value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                       placeholder="+38 (XXX) XXX-XX-XX"
                       className="border-border focus:border-accent"
                     />
@@ -169,7 +174,9 @@ const Contacts = () => {
                     type="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     placeholder="your@email.com"
                     className="border-border focus:border-accent"
                   />
@@ -182,14 +189,16 @@ const Contacts = () => {
                   <Textarea
                     required
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     placeholder="Опишіть ваше питання або потребу в послугах..."
                     rows={5}
                     className="border-border focus:border-accent resize-none"
                   />
                 </div>
 
-                <Button 
+                <Button
                   type="submit"
                   size="lg"
                   className="w-full bg-primary hover:bg-primary-dark"
@@ -199,11 +208,12 @@ const Contacts = () => {
                 </Button>
 
                 <p className="text-xs text-text-muted text-center">
-                  Натискаючи кнопку, ви погоджуєтесь з обробкою персональних даних
+                  Натискаючи кнопку, ви погоджуєтесь з обробкою персональних
+                  даних
                 </p>
               </form>
             </Card>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
