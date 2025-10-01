@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "afconceptaudit.com",
+  "homepage": "https://afconceptaudit.com/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
