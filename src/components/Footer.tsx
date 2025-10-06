@@ -117,6 +117,14 @@ const Footer = () => {
                   Контакти
                 </button>
               </li>
+              <li>
+                <button
+                  onClick={() => (window.location.href = "/news")}
+                  className="text-white/80 hover:text-accent transition-colors text-sm"
+                >
+                  Новини
+                </button>
+              </li>
             </ul>
           </div>
 

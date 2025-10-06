@@ -46,7 +46,23 @@ const Header = () => {
       <div className="max-w-7xl mx-auto container-padding">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <button
+            onClick={() => {
+              if (location.pathname !== "/") {
+                navigate("/");
+              } else {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+              setIsMenuOpen(false);
+            }}
+            className="flex items-center space-x-3 focus:outline-none"
+            style={{
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+            }}
+          >
             <img src={logo} alt="Концепт-Аудит" className="w-10 h-10" />
             <div className="hidden sm:block">
               <h1 className="font-playfair font-bold text-xl text-primary">
@@ -54,7 +70,7 @@ const Header = () => {
               </h1>
               <p className="text-sm text-text-secondary">Аудиторська фірма</p>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -144,34 +160,58 @@ const Header = () => {
           <div className="lg:hidden pb-4 border-t border-border mt-4 pt-4">
             <nav className="flex flex-col space-y-3">
               <button
-                onClick={() => goToOrScroll("about")}
+                onClick={() => {
+                  goToOrScroll("about");
+                  setIsMenuOpen(false);
+                }}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Про нас
               </button>
               <button
-                onClick={() => goToOrScroll("services")}
+                onClick={() => {
+                  goToOrScroll("services");
+                  setIsMenuOpen(false);
+                }}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Послуги
               </button>
               <button
-                onClick={() => goToOrScroll("team")}
+                onClick={() => {
+                  goToOrScroll("team");
+                  setIsMenuOpen(false);
+                }}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Команда
               </button>
               <button
-                onClick={() => goToOrScroll("certificates")}
+                onClick={() => {
+                  goToOrScroll("certificates");
+                  setIsMenuOpen(false);
+                }}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Сертифікати
               </button>
               <button
-                onClick={() => goToOrScroll("contacts")}
+                onClick={() => {
+                  goToOrScroll("contacts");
+                  setIsMenuOpen(false);
+                }}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Контакти
+              </button>
+              <button
+                onClick={() => {
+                  navigate("/news");
+                  setIsMenuOpen(false);
+                }}
+                className="text-left text-text-secondary hover:text-primary py-2"
+              >
+                Новини
               </button>
               <div className="pt-3 space-y-2">
                 <div className="flex items-center space-x-2 text-sm">
