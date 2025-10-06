@@ -1,45 +1,51 @@
-import { Card } from '@/components/ui/card';
-import { 
-  Clock, 
-  Shield, 
-  HandHeart, 
-  Users, 
-  Lock, 
-  CheckCircle2 
-} from 'lucide-react';
+import { Card } from "@/components/ui/card";
+import {
+  Clock,
+  Shield,
+  HandHeart,
+  Users,
+  Lock,
+  CheckCircle2,
+} from "lucide-react";
 
 const WhyUs = () => {
   const advantages = [
     {
       icon: Clock,
       title: "Багаторічна експертиза",
-      description: "За плечима нашої команди — роки реальної практики, десятки кейсів і глибоке розуміння аудиту, податків і бізнесу."
+      description:
+        "За плечима нашої команди — роки реальної практики, десятки кейсів і глибоке розуміння аудиту, податків і бізнесу.",
     },
     {
       icon: CheckCircle2,
       title: "Гарантований результат",
-      description: "Ми не просто виконуємо завдання — ми досягаємо чітко визначеного результату, який має практичну цінність для вашого бізнесу."
+      description:
+        "Ми не просто виконуємо завдання — ми досягаємо чітко визначеного результату, який має практичну цінність для вашого бізнесу.",
     },
     {
       icon: HandHeart,
       title: "Надійне партнерство",
-      description: "Ми будуємо співпрацю не на один проєкт, а на роки — як стратегічний партнер, а не тимчасовий підрядник."
+      description:
+        "Ми будуємо співпрацю не на один проєкт, а на роки — як стратегічний партнер, а не тимчасовий підрядник.",
     },
     {
       icon: Users,
       title: "Індивідуальний підхід",
-      description: "Кожен клієнт отримує персоналізоване рішення: від комплексної перевірки до точкових аудитів окремих напрямків діяльності."
+      description:
+        "Кожен клієнт отримує персоналізоване рішення: від комплексної перевірки до точкових аудитів окремих напрямків діяльності.",
     },
     {
       icon: Lock,
       title: "Конфіденційність і безпека",
-      description: "Ми гарантуємо повну конфіденційність усіх даних та дотримуємось високих стандартів аудиторської етики."
+      description:
+        "Ми гарантуємо повну конфіденційність усіх даних та дотримуємось високих стандартів аудиторської етики.",
     },
     {
       icon: Shield,
       title: "Професійна відповідальність",
-      description: "Ми гарантуємо повну прозорість та точність у роботі. Кожен наш висновок і кожна рекомендація базуються на ретельному аналізі."
-    }
+      description:
+        "Ми гарантуємо повну прозорість та точність у роботі. Кожен наш висновок і кожна рекомендація базуються на ретельному аналізі.",
+    },
   ];
 
   return (
@@ -51,7 +57,8 @@ const WhyUs = () => {
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Ми пропонуємо не просто послуги, а комплексні рішення для вашого бізнесу
+            Ми пропонуємо не просто послуги, а комплексні рішення для вашого
+            бізнесу
           </p>
         </div>
 
@@ -59,7 +66,7 @@ const WhyUs = () => {
           {advantages.map((advantage, index) => {
             const IconComponent = advantage.icon;
             return (
-              <Card 
+              <Card
                 key={index}
                 className="p-6 bg-card shadow-soft hover:shadow-medium transition-all duration-300 hover-lift group animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -87,19 +94,11 @@ const WhyUs = () => {
                 Готові довірити нам свій бізнес?
               </h3>
               <p className="text-text-secondary text-lg mb-8 max-w-2xl mx-auto">
-                Зв'яжіться з нами сьогодні для безкоштовної консультації. Наші експерти 
-                оцінять ваші потреби та запропонують оптимальні рішення.
+                Зв’яжіться з нами Це дуже просто! Телефонуйте прямо або напишіть
+                нам. Ми вже чекаємо на ваш дзвінок і готові проконсультувати з
+                усіх питань.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <div className="flex items-center justify-center space-x-2 text-primary">
-                  <Clock className="w-5 h-5 text-accent" />
-                  <span className="font-medium">Швидкий відгук протягом 24 годин</span>
-                </div>
-                <div className="flex items-center justify-center space-x-2 text-primary">
-                  <CheckCircle2 className="w-5 h-5 text-accent" />
-                  <span className="font-medium">Безкоштовна первинна консультація</span>
-                </div>
-              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center"></div>
             </div>
           </Card>
         </div>

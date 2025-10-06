@@ -1,5 +1,6 @@
-import { Phone, Mail, MapPin } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,7 +8,7 @@ const Footer = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -20,13 +21,16 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-6">
               <img src={logo} alt="Концепт-Аудит" className="w-10 h-10" />
               <div>
-                <h3 className="font-playfair font-bold text-xl">КОНЦЕПТ-АУДИТ</h3>
+                <h3 className="font-playfair font-bold text-xl">
+                  КОНЦЕПТ-АУДИТ
+                </h3>
                 <p className="text-white/80 text-sm">Аудиторська фірма</p>
               </div>
             </div>
             <p className="text-white/90 leading-relaxed mb-6 max-w-md">
-              Надійний партнер Вашого бізнесу. Ми перетворюємо складні цифри у зрозумілі рішення, 
-              а вимоги закону – у переваги для вашої компанії.
+              Надійний партнер Вашого бізнесу. Ми перетворюємо складні цифри у
+              зрозумілі рішення, а вимоги закону – у переваги для вашої
+              компанії.
             </p>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
@@ -38,7 +42,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-accent" />
-                <a 
+                <a
                   href="mailto:af.concept.audit@gmail.com"
                   className="text-sm hover:text-accent transition-colors"
                 >
@@ -52,48 +56,62 @@ const Footer = () => {
                   <div>м. Львів, вул. Яворницького Д., 8, кв. 72</div>
                 </div>
               </div>
+              <div className="mt-4">
+                <iframe
+                  title="Google Map Location"
+                  src="https://www.google.com/maps?q=79054,+Україна,+Львівська+обл.,+м.+Львів,+вул.+Яворницького+Д.,+8,+кв.+72&output=embed"
+                  width="100%"
+                  height="180"
+                  style={{ border: 0, borderRadius: "0.75rem" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-playfair font-semibold text-lg mb-6">Навігація</h4>
+            <h4 className="font-playfair font-semibold text-lg mb-6">
+              Навігація
+            </h4>
             <ul className="space-y-3">
               <li>
-                <button 
-                  onClick={() => scrollToSection('about')}
+                <button
+                  onClick={() => scrollToSection("about")}
                   className="text-white/80 hover:text-accent transition-colors text-sm"
                 >
                   Про нас
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('services')}
+                <button
+                  onClick={() => scrollToSection("services")}
                   className="text-white/80 hover:text-accent transition-colors text-sm"
                 >
                   Послуги
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('team')}
+                <button
+                  onClick={() => scrollToSection("team")}
                   className="text-white/80 hover:text-accent transition-colors text-sm"
                 >
                   Команда
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('certificates')}
+                <button
+                  onClick={() => scrollToSection("certificates")}
                   className="text-white/80 hover:text-accent transition-colors text-sm"
                 >
                   Сертифікати
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => scrollToSection('contacts')}
+                <button
+                  onClick={() => scrollToSection("contacts")}
                   className="text-white/80 hover:text-accent transition-colors text-sm"
                 >
                   Контакти
@@ -104,7 +122,9 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-playfair font-semibold text-lg mb-6">Послуги</h4>
+            <h4 className="font-playfair font-semibold text-lg mb-6">
+              Послуги
+            </h4>
             <ul className="space-y-3 text-sm text-white/80">
               <li>Аудит фінансової звітності</li>
               <li>Аналіз діяльності</li>
@@ -120,14 +140,6 @@ const Footer = () => {
             <p className="text-white/70 text-sm">
               © {currentYear} ТОВ АФ «КОНЦЕПТ-АУДИТ». Усі права захищені.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-white/70 hover:text-accent text-sm transition-colors">
-                Політика конфіденційності
-              </a>
-              <a href="#" className="text-white/70 hover:text-accent text-sm transition-colors">
-                Умови надання послуг
-              </a>
-            </div>
           </div>
         </div>
       </div>

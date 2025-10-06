@@ -1,46 +1,66 @@
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { 
-  FileText, 
-  TrendingUp, 
-  Calculator, 
-  DollarSign, 
-  MessageCircle, 
-  ArrowRight 
-} from 'lucide-react';
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  FileText,
+  TrendingUp,
+  Calculator,
+  DollarSign,
+  MessageCircle,
+  ArrowRight,
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
+  const navigate = useNavigate();
   const services = [
     {
       icon: FileText,
       title: "Аудит",
-      description: "Комплексний аудит фінансової звітності відповідно до міжнародних стандартів",
-      features: ["Зовнішній аудит", "Внутрішній аудит", "Аудит державних установ"]
+      description:
+        "Комплексний аудит фінансової звітності відповідно до міжнародних стандартів",
+      features: [
+        "Зовнішній аудит",
+        "Внутрішній аудит",
+        "Аудит державних установ",
+      ],
+      path: "/services/audit",
     },
     {
       icon: TrendingUp,
       title: "Аналіз фінансово-господарської діяльності",
-      description: "Глибокий аналіз фінансового стану та ефективності діяльності підприємства",
-      features: ["Фінансовий аналіз", "Оцінка ефективності", "Бізнес-планування"]
+      description:
+        "Глибокий аналіз фінансового стану та ефективності діяльності підприємства",
+      features: [
+        "Фінансовий аналіз",
+        "Оцінка ефективності",
+        "Бізнес-планування",
+      ],
+      path: "/services/analysis",
     },
     {
       icon: Calculator,
       title: "Примітки до фінансової звітності",
-      description: "Професійна підготовка приміток та роз'яснень до фінансової звітності",
-      features: ["Підготовка приміток", "Консультації", "Супровід звітності"]
+      description:
+        "Професійна підготовка приміток та роз'яснень до фінансової звітності",
+      features: ["Підготовка приміток", "Консультації", "Супровід звітності"],
+      path: "/services/notes",
     },
     {
       icon: DollarSign,
       title: "Трансфертне ціноутворення",
-      description: "Консультації з питань трансфертного ціноутворення та міжнародного оподаткування",
-      features: ["Аналіз цін", "Документування", "Оптимізація податків"]
+      description:
+        "Консультації з питань трансфертного ціноутворення та міжнародного оподаткування",
+      features: ["Аналіз цін", "Документування", "Оптимізація податків"],
+      path: "/services/transfer",
     },
     {
       icon: MessageCircle,
       title: "Консультації з податкового законодавства",
-      description: "Експертні консультації з усіх питань податкового планування та оптимізації",
-      features: ["Податкове планування", "Оптимізація", "Супровід перевірок"]
-    }
+      description:
+        "Експертні консультації з усіх питань податкового планування та оптимізації",
+      features: ["Податкове планування", "Оптимізація", "Супровід перевірок"],
+      path: "/services/tax",
+    },
   ];
 
   return (
@@ -52,7 +72,8 @@ const Services = () => {
           </h2>
           <div className="w-24 h-1 bg-accent mx-auto mb-8"></div>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Ми надаємо повний спектр аудиторських та консультаційних послуг для вашого бізнесу
+            Ми надаємо повний спектр аудиторських та консультаційних послуг для
+            вашого бізнесу
           </p>
         </div>
 
@@ -60,8 +81,8 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card 
-                key={index} 
+              <Card
+                key={index}
                 className="p-6 bg-card shadow-soft hover:shadow-medium transition-all duration-300 hover-lift group animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
@@ -77,18 +98,10 @@ const Services = () => {
                   </p>
                 </div>
 
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-text-secondary">
-                      <div className="w-1.5 h-1.5 bg-accent rounded-full mr-3 flex-shrink-0"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all"
+                  onClick={() => navigate(service.path)}
                 >
                   Дізнатися більше
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -104,14 +117,15 @@ const Services = () => {
               Потрібна індивідуальна консультація?
             </h3>
             <p className="text-white/90 text-lg mb-6">
-              Наші експерти готові обговорити специфіку вашого бізнесу та запропонувати оптимальні рішення
+              Наші експерти готові обговорити специфіку вашого бізнесу та
+              запропонувати оптимальні рішення
             </p>
-            <Button 
+            <Button
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent-light font-semibold"
               onClick={() => {
-                const element = document.getElementById('contacts');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
+                const element = document.getElementById("contacts");
+                if (element) element.scrollIntoView({ behavior: "smooth" });
               }}
             >
               Отримати консультацію

@@ -1,15 +1,42 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X, Phone, Mail } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Phone, Mail } from "lucide-react";
+import logo from "@/assets/logo.png";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const services = [
+    { name: "Аудит фінансової звітності", path: "/services/audit" },
+    {
+      name: "Аналіз фінансово-господарської діяльності",
+      path: "/services/analysis",
+    },
+    { name: "Примітки до фінансової звітності", path: "/services/notes" },
+    { name: "Трансфертне ціноутворення", path: "/services/transfer" },
+    { name: "Податкові консультації", path: "/services/tax" },
+  ];
+
+  const goToOrScroll = (sectionId: string) => {
+    if (location.pathname !== "/") {
+      navigate("/");
+      // scroll after navigation (delayed)
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
   };
@@ -31,35 +58,52 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('about')}
+            <button
+              onClick={() => goToOrScroll("about")}
               className="text-text-secondary hover:text-primary transition-colors"
             >
               Про нас
             </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-text-secondary hover:text-primary transition-colors"
-            >
-              Послуги
-            </button>
-            <button 
-              onClick={() => scrollToSection('team')}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="text-text-secondary hover:text-primary transition-colors">
+                  Послуги
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-white shadow-lg border border-border">
+                {services.map((service) => (
+                  <DropdownMenuItem
+                    key={service.path}
+                    onClick={() => navigate(service.path)}
+                  >
+                    {service.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <button
+              onClick={() => goToOrScroll("team")}
               className="text-text-secondary hover:text-primary transition-colors"
             >
               Команда
             </button>
-            <button 
-              onClick={() => scrollToSection('certificates')}
+            <button
+              onClick={() => goToOrScroll("certificates")}
               className="text-text-secondary hover:text-primary transition-colors"
             >
               Сертифікати
             </button>
-            <button 
-              onClick={() => scrollToSection('contacts')}
+            <button
+              onClick={() => goToOrScroll("contacts")}
               className="text-text-secondary hover:text-primary transition-colors"
             >
               Контакти
+            </button>
+            <button
+              onClick={() => navigate("/news")}
+              className="text-text-secondary hover:text-primary transition-colors"
+            >
+              Новини
             </button>
           </nav>
 
@@ -67,10 +111,13 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm">
               <Phone className="w-4 h-4 text-accent" />
-              <span className="text-text-secondary">+38(067)610-40-47</span>
+              <div className="text-sm space-y-1">
+                <div className="text-text-secondary">+38(067)610-40-47</div>
+                <div className="text-text-secondary">+38(067)263-05-64</div>
+              </div>
             </div>
-            <Button 
-              onClick={() => scrollToSection('contacts')}
+            <Button
+              onClick={() => window.open("tel:+380676104047")}
               variant="default"
               size="sm"
               className="bg-primary hover:bg-primary-dark"
@@ -84,7 +131,11 @@ const Header = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2"
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -92,32 +143,32 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden pb-4 border-t border-border mt-4 pt-4">
             <nav className="flex flex-col space-y-3">
-              <button 
-                onClick={() => scrollToSection('about')}
+              <button
+                onClick={() => goToOrScroll("about")}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Про нас
               </button>
-              <button 
-                onClick={() => scrollToSection('services')}
+              <button
+                onClick={() => goToOrScroll("services")}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Послуги
               </button>
-              <button 
-                onClick={() => scrollToSection('team')}
+              <button
+                onClick={() => goToOrScroll("team")}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Команда
               </button>
-              <button 
-                onClick={() => scrollToSection('certificates')}
+              <button
+                onClick={() => goToOrScroll("certificates")}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Сертифікати
               </button>
-              <button 
-                onClick={() => scrollToSection('contacts')}
+              <button
+                onClick={() => goToOrScroll("contacts")}
                 className="text-left text-text-secondary hover:text-primary py-2"
               >
                 Контакти
@@ -127,8 +178,8 @@ const Header = () => {
                   <Phone className="w-4 h-4 text-accent" />
                   <span className="text-text-secondary">+38(067)610-40-47</span>
                 </div>
-                <Button 
-                  onClick={() => scrollToSection('contacts')}
+                <Button
+                  onClick={() => goToOrScroll("contacts")}
                   variant="default"
                   size="sm"
                   className="w-full bg-primary hover:bg-primary-dark"

@@ -67,7 +67,7 @@ const Contacts = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid gap-12">
           {/* Contact Information */}
           <div className="animate-slide-up">
             <div className="grid sm:grid-cols-2 gap-6 mb-8">
@@ -113,9 +113,6 @@ const Contacts = () => {
             </div>
 
             <Card className="p-6 bg-gradient-to-r from-primary to-primary-dark text-white">
-              <h3 className="font-playfair font-semibold text-xl mb-4">
-                Безкоштовна консультація
-              </h3>
               <p className="text-white/90 mb-4">
                 Отримайте професійну консультацію з будь-яких питань аудиту та
                 оподаткування
@@ -127,93 +124,6 @@ const Contacts = () => {
               </ul>
             </Card>
           </div>
-
-          {/* Contact Form */}
-          {/* <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
-            <Card className="p-8 bg-card shadow-medium">
-              <h3 className="font-playfair font-semibold text-2xl text-primary mb-6">
-                Надішліть повідомлення
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-primary mb-2">
-                      Ім'я *
-                    </label>
-                    <Input
-                      required
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      placeholder="Ваше ім'я"
-                      className="border-border focus:border-accent"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-primary mb-2">
-                      Телефон
-                    </label>
-                    <Input
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      placeholder="+38 (XXX) XXX-XX-XX"
-                      className="border-border focus:border-accent"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-primary mb-2">
-                    Email *
-                  </label>
-                  <Input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    placeholder="your@email.com"
-                    className="border-border focus:border-accent"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-primary mb-2">
-                    Повідомлення *
-                  </label>
-                  <Textarea
-                    required
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    placeholder="Опишіть ваше питання або потребу в послугах..."
-                    rows={5}
-                    className="border-border focus:border-accent resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-primary hover:bg-primary-dark"
-                >
-                  Надіслати повідомлення
-                  <Send className="ml-2 w-5 h-5" />
-                </Button>
-
-                <p className="text-xs text-text-muted text-center">
-                  Натискаючи кнопку, ви погоджуєтесь з обробкою персональних
-                  даних
-                </p>
-              </form>
-            </Card>
-          </div> */}
         </div>
       </div>
     </section>
